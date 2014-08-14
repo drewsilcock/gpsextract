@@ -5,7 +5,7 @@ import exifread
 def ratio_to_float(ratio):
     # Takes exif tag value ratio as input and outputs float
 
-    if not ratio.__class__ == exifread.utils.Ratio:
+    if not isinstance(ratio, exifread.utils.Ratio):
         raise ValueError("You passed something to ratio_to_float that isn't "
                          "a GPS ratio.")
 
@@ -17,7 +17,7 @@ def tag_to_float(gps_tag):
     # Takes GPS exif lat or long tag as input and outputs as simple float in
     # degrees
 
-    if not gps_tag.__class__ == exifread.classes.IfdTag:
+    if not isinstance(gps_tag, exifread.classes.IfdTag):
         raise ValueError("You passed something to tag_to_float that isn't an "
                          "EXIF tag.")
 
